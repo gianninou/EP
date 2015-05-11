@@ -18,19 +18,20 @@ BEGIN {
 	dst = $4;
 	name = $5;
 	size = $6
+	paquet_type = $7;
 	flow_id = $8;
 	src_address = $9;
 	dst_address = $10;
 	seq_no = $11;
 	packet_id = $12; 
 
-	if (action == "s") {    
+	if (action == "s" && paquet_type == "cbr") {    
 		send_count = send_count + 1; 
 	}
-	if (action == "r") {    
+	if (action == "r" && paquet_type == "cbr") {    
 		received_count = received_count + 1; 
 	}
-	if (action == "D") {    
+	if (action == "D" && paquet_type == "cbr") {    
 		dropped_count = dropped_count + 1; 
 	}
 	
