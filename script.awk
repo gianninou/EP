@@ -41,11 +41,11 @@ END {
 	ber = ((dropped_count)/send_count)*100;
 	bandwith = received_count/time;	
 
-	printf "send : %d\n",send_count;
-	printf "received : %d\n",received_count;
-	printf "dropped : %d\n",dropped_count;
-	printf "ber : %f%\n",ber;
-	printf "bandwith %f\n",bandwith;
+	#printf "send : %d\n",send_count;
+	#printf "received : %d\n",received_count;
+	#printf "dropped : %d\n",dropped_count;
+	#printf "ber : %f%\n",ber;
+	#printf "bandwith %f\n",bandwith;
 
 	printf "%d %d %d %f %f\n",send_count,received_count,dropped_count,ber,bandwith
 }
