@@ -16,6 +16,7 @@ do
 		rm tmp.tcl
 		awk -f script.awk results.tr 2>/dev/null | tail -n 1 >> moy.tr
 	done
-	awk -f moy.awk moy.tr >> final.tr
+	echo -n "$s " >> final.tr
+	awk -f moy.awk moy.tr 2>/dev/null >> final.tr
 done
 

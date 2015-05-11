@@ -29,12 +29,12 @@ count=count+1;
 END{
 
 
-printf "%d mesures\n",count;
-printf "send %d\n",s_t/count;
-printf "received %d\n",r_t/count;
-printf "dropped %d\n",d_t/count;
-printf "ber %f\n",be_t/count;
-printf "bandwith %f\n",ba_t/count;
+#printf "%d mesures\n",count;
+#printf "send %d\n",s_t/count;
+#printf "received %d\n",r_t/count;
+#printf "dropped %d\n",d_t/count;
+#printf "ber %f\n",be_t/count;
+#printf "bandwith %f\n",ba_t/count;
 
 printf "%d %d %d %f %f\n",s_t/count,r_t/count,d_t/count,be_t/count,ba_t/count;
 
