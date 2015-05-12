@@ -23,6 +23,7 @@ do
 	rm moy.tr 2>/dev/null
 done
 
+mkdir courbes 2>/dev/null
 gnuplot < plot.options
 echo "courbes générées" 
 
