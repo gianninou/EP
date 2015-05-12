@@ -4,8 +4,12 @@ s_t=0;
 r_t=0;
 d_t=0;
 be_t=0.0;
+be_square = 0.0;
 ba_t=0.0;
 count=0;
+be_stand_dev = 0.0;
+be_min95 = 0.0;
+be_max95 = 0.0;
 }
 
 {
@@ -15,11 +19,12 @@ d=$3;
 be=$4;
 ba=$5;
 
-s_t = s_t + s;
-r_t=r_t + r;
-d_t=d_t + d;
-be_t=be_t + be;
-ba_t=ba_t + ba;
+s_t += + s;
+r_t += r;
+d_t += d;
+be_t += be;
+be_square += be * be 
+ba_t += ba;
 count=count+1;
 
 
@@ -28,6 +33,10 @@ count=count+1;
 
 END{
 
+be_stand_dev = sqrt(be_square/count - (be_t/count)**2);
+
+be_min95 = be_t/count - 1.96*be_stand_dev/sqrt(count);
+be_max95 = be_t/count + 1.96*be_stand_dev/sqrt(count);
 
 #printf "%d mesures\n",count;
 #printf "send %d\n",s_t/count;
@@ -36,6 +45,7 @@ END{
 #printf "ber %f\n",be_t/count;
 #printf "bandwith %f\n",ba_t/count;
 
-printf "%d %d %d %f %f\n",s_t/count,r_t/count,d_t/count,be_t/count,ba_t/count;
+# moy paquet envoyés | moy paquets reçus | moy paquet perdu | moy BER | moy bandwidth | BE 95%- | BER 95%+
+printf "%d %d %d %f %f %f %f\n",s_t/count,r_t/count,d_t/count,be_t/count,ba_t/count,be_min95,be_max95;
 
 }

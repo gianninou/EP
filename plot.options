@@ -1,0 +1,9 @@
+#BER AODV
+set term pngcairo enhanced
+set output "courbes/BER.png"
+set style fill transparent solid 0.2 noborder
+set title "AODV - Taux d'erreur moyen en fonction du CBR"
+set xlabel "CBR"
+set ylabel "Taux de perte de paquets "
+plot 'graph.dat' using 1:7:8 with filledcurves title 'Intervalle de confiance 95%',\
+      '' using 1:5 with lp lt 1 pt 7 ps 1.5 lw 3 title 'Valeur moyenne'
