@@ -40,7 +40,7 @@ BEGIN {
 END {
 	
 	ber = ((dropped_count)/send_count)*100;
-	bandwith = received_count/time;	
+	bandwith = received_count*size/time;	
 
 	#printf "send : %d\n",send_count;
 	#printf "received : %d\n",received_count;

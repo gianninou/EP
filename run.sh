@@ -19,7 +19,7 @@ do
 		rm results.tr 2>/dev/null
 	done
 	echo -n "$s " >> graph.dat
-	awk -f moy.awk moy.tr moy.tr 2>/dev/null >> graph.dat
+	awk -f moy.awk moy.tr 2>/dev/null >> graph.dat
 	rm moy.tr 2>/dev/null
 done
 
