@@ -12,11 +12,11 @@ set val(x) 1000; # X Largeur de la région (en mètres)
 set val(y) 1000; # Y Hauteur de la région (en mètres)
 set val(nn) 20; # Nombre de nœuds
 set val(stop) 60; # Temps de la simulation (en secondes)
-set val(sources) toto;  
+set val(sources) SOURCES_VAR;  
 # Nombre de sources passé en argument 
 set val(packet_size) 512; # Taille des paquets envoyés (en octets)
 set val(interval) 0.1; # Intervalle d'envoi de paquets (en secondes)
-set val(rp) AODV; # Protocole de routage
+set val(rp) PROTOCOLE_VAR; # Protocole de routage
 
 # Définition de la variable de Random pour le placement des nœuds dans la région
 global defaultRNG
