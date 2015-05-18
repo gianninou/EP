@@ -8,11 +8,17 @@ be_square = 0.0;
 be_stand_dev = 0.0;
 be_min95 = 0.0;
 be_max95 = 0.0;
-ba_t=0.0;
+ba_t = 0.0;
+ba_square = 0.0;
 ba_stand_dev = 0.0;
 ba_min95 = 0.0;
 ba_max95 = 0.0;
 mean_time_send = 0.0;
+mt_square = 0.0;
+mt_stand_dev = 0.0;
+mt_min95 = 0.0;
+mt_max95 = 0.0;
+value = 0.0;
 count=0;
 }
 
@@ -32,6 +38,7 @@ be_square += be * be;
 ba_t += ba;
 ba_square += ba * ba;
 mean_time_send = mean_time_send+mt;
+mt_square += mean_time_square * mean_time_square;
 count=count+1;
 
 
@@ -50,6 +57,11 @@ ba_stand_dev = sqrt(ba_square/count - (ba_t/count)**2);
 ba_min95 = ba_t/count - 1.96*ba_stand_dev/sqrt(count);
 ba_max95 = ba_t/count + 1.96*ba_stand_dev/sqrt(count);
 
+value =(mt_square/count) - (mean_time_send/count)**2
+mt_stand_dev = sqrt(value < 0 ? -value : value);
+mt_min95 = mean_time_send/count - 1.96*mt_stand_dev/sqrt(count);
+mt_max95 = mean_time_send/count + 1.96*mt_stand_dev/sqrt(count);
+
 #printf "%d mesures\n",count;
 #printf "send %d\n",s_t/count;
 #printf "received %d\n",r_t/count;
@@ -58,6 +70,6 @@ ba_max95 = ba_t/count + 1.96*ba_stand_dev/sqrt(count);
 #printf "bandwith %f\n",ba_t/count;
 
 # moy paquet envoyés | moy paquets reçus | moy paquet perdu | moy BER | moy bandwidth | BE 95%- | BER 95%+ | Bandwidth 95%- | Band 95%+
-printf "%d %d %d %f %f %f %f %f %f %f\n",s_t/count,r_t/count,d_t/count,be_t/count,ba_t/count,be_min95,be_max95,ba_min95,ba_max95,mean_time_send/count;
+printf "%d %d %d %f %f %f %f %f %f %f %f %f\n",s_t/count,r_t/count,d_t/count,be_t/count,ba_t/count,be_min95,be_max95,ba_min95,ba_max95,mean_time_send/count,mt_min95,mt_max95;
 
 }
