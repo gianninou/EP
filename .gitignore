@@ -4,3 +4,7 @@
 *.ppt
 *.nam
 courbes/
+errors
+tmp.tcl
+AODV.tcl
+DSR.tcl

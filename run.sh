@@ -10,10 +10,10 @@ do
 
 	sed  's/PROTOCOLE_VAR/'$p'/g' protocol.tcl > $p".tcl"
 
-	rm graph.dat 2>/dev/null
+	rm graph.dat 2>>errors
 	for s in {1..10}
 	do
-		rm moy.tr 2>/dev/null
+		rm moy.tr 2>>errors
 		echo -n $s" : "
 		for i in {1..30}
 		do
@@ -24,24 +24,24 @@ do
 			ok=1
 			while [ $ok -ne 0 ]
 			do
-				ns tmp.tcl  &> /dev/null
+				echo `ns tmp.tcl 2>/dev/null >/dev/null` 2>/dev/null 1>/dev/null 
 				ok=$?
 			done
 
 			rm tmp.tcl
-			awk -f script.awk results.tr  | tail -n 1 >> moy.tr
-			rm results.tr 2>/dev/null
+			awk -f script.awk results.tr 2>>errors  | tail -n 1 >> moy.tr
+			rm results.tr 2>>errors
 		done
 		echo -n "$s " >> graph.dat
 		awk -f moy.awk moy.tr  >> graph.dat
-		rm moy.tr 2>/dev/null
+		rm moy.tr 2>>errors
 	done
 
 	cp graph.dat 'graph_'$p'.dat'
 
-	rm $p".tcl" 2>/dev/null
+	rm $p".tcl" 2>>errors
 
-	mkdir -p 'courbes/' 2>/dev/null
+	mkdir -p 'courbes/' 2>>errors
 	gnuplot < 'plot_'$p'.options'
 	echo "courbes générées" 
 
