@@ -1,0 +1,31 @@
+#BER DSR
+set term pngcairo enhanced
+set output "courbes/DSR_BER.png"
+set style fill transparent solid 0.2 noborder
+set title "DSR - Taux d'erreur moyen en fonction du CBR"
+set xlabel "CBR"
+set ylabel "Taux de perte de paquets "
+plot 'graph.dat' using 1:7:8 with filledcurves title 'Intervalle de confiance 95%',\
+      '' using 1:5 with lp lt 1 pt 7 ps 1.5 lw 3 title 'Valeur moyenne'
+
+#Bandwidth DSR
+set term pngcairo enhanced
+set output "courbes/DSR_debit.png"
+set style fill transparent solid 0.2 noborder
+set title "DSR - Débit moyen en fonction du CBR"
+set xlabel "CBR"
+set ylabel "Bande passante "
+plot 'graph.dat' using 1:9:10 with filledcurves title 'Intervalle de confiance 95%',\
+      '' using 1:6 with lp lt 1 pt 7 ps 1.5 lw 3 title 'Valeur moyenne'
+
+
+#Mean time send DSR
+set term pngcairo enhanced
+set output "courbes/DSR_meantime.png"
+set style fill transparent solid 0.2 noborder
+set title "DSR - Temps moyen d'envoi en fonction du CBR"
+set xlabel "CBR"
+set ylabel "Bande passante "
+plot 'graph.dat' using 1:12:13 with filledcurves title 'Intervalle de confiance 95%',\
+      '' using 1:11 with lp lt 1 pt 7 ps 1.5 lw 3 title 'Valeur moyenne'
+
