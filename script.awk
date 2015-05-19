@@ -22,9 +22,9 @@ BEGIN {
 	src = $3;
 	dst = $4;
 	name = $5;
-	size = $6
+	size = $8
 	paquet_type = $7;
-	flow_id = $8;
+	#flow_id = $8;
 	src_address = $9;
 	dst_address = $10;
 	seq_no = $11;
