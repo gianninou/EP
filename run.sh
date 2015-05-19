@@ -11,7 +11,7 @@ do
 	sed  's/PROTOCOLE_VAR/'$p'/g' protocol.tcl > $p".tcl"
 
 	rm graph.dat 2>>errors
-	for s in {1..10}
+	for s in {8..10}
 	do
 		rm moy.tr 2>>errors
 		echo -n $s" : "
@@ -24,7 +24,7 @@ do
 			ok=1
 			while [ $ok -ne 0 ]
 			do
-				echo `ns tmp.tcl 2>/dev/null >/dev/null` 2>/dev/null 1>/dev/null 
+				ns tmp.tcl 2>/dev/null >/dev/null 
 				ok=$?
 			done
 
