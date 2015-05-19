@@ -30,7 +30,7 @@ be=$4;
 ba=$5;
 mt=$6;
 
-s_t += + s;
+s_t += s;
 r_t += r;
 d_t += d;
 be_t += be;
