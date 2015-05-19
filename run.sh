@@ -11,7 +11,7 @@ do
 	sed  's/PROTOCOLE_VAR/'$p'/g' protocol.tcl > $p".tcl"
 
 	rm graph.dat 2>>errors
-	for s in {8..10}
+	for s in {1..10}
 	do
 		rm moy.tr 2>>errors
 		echo -n $s" : "
