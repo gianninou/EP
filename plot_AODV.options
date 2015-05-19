@@ -4,7 +4,7 @@ set output "courbes/AODV_BER.png"
 set style fill transparent solid 0.2 noborder
 set title "AODV - Taux d'erreur moyen en fonction du CBR"
 set xlabel "CBR"
-set ylabel "Taux de perte de paquets "
+set ylabel "Taux de perte de paquets (%) "
 plot 'graph_AODV.dat' using 1:7:8 with filledcurves title 'Intervalle de confiance 95%',\
       '' using 1:5 with lp lt 1 pt 7 ps 1.5 lw 3 title 'Valeur moyenne'
 
@@ -14,7 +14,7 @@ set output "courbes/AODV_debit.png"
 set style fill transparent solid 0.2 noborder
 set title "AODV - Débit moyen en fonction du CBR"
 set xlabel "CBR"
-set ylabel "Bande passante "
+set ylabel "Bande passante (bit/s)"
 plot 'graph_AODV.dat' using 1:9:10 with filledcurves title 'Intervalle de confiance 95%',\
       '' using 1:6 with lp lt 1 pt 7 ps 1.5 lw 3 title 'Valeur moyenne'
 
@@ -25,7 +25,7 @@ set output "courbes/AODV_meantime.png"
 set style fill transparent solid 0.2 noborder
 set title "AODV - Temps moyen d'envoi en fonction du CBR"
 set xlabel "CBR"
-set ylabel "Bande passante "
+set ylabel  "temps moyen d'envoi (s) "
 plot 'graph_AODV.dat' using 1:12:13 with filledcurves title 'Intervalle de confiance 95%',\
       '' using 1:11 with lp lt 1 pt 7 ps 1.5 lw 3 title 'Valeur moyenne'
 
