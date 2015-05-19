@@ -44,7 +44,7 @@ BEGIN {
 
 	if (action == "r" && paquet_type == "cbr") {    
 		received_count = received_count + 1; 
-		received_count = received_count + size;
+		received_count_size = received_count_size + size;
 		if(dst == "AGT"){
 			#printf "----\n";
 			#printf "packet_id r : %s\n", packet_id;
@@ -69,7 +69,7 @@ END {
 	}
 	ber = ((dropped_count)/send_count)*100;
 	printf "time : %f\n",time;
-	bandwith = received_count/time;	
+	bandwith = received_count_size/time;	
 
 	#printf "send : %d\n",send_count;
 	#printf "received : %d\n",received_count;
